@@ -1,0 +1,965 @@
+@import url('https://fonts.googleapis.com/css2?family=Kurale&display=swap');
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ARABIAN APIARY — optional dev skin
+   The generated illustration stays decoration-only; every control below is
+   still the same live Vue component and therefore keeps its original logic.
+   ═══════════════════════════════════════════════════════════════════════════ */
+.theme-apiary {
+  --bg-0: #2a1508;
+  --bg-1: #f0c978;
+  --bg-2: #f7d995;
+  --bg-3: #e6b45c;
+  --bg-4: #ca8730;
+  --line: rgba(92, 43, 10, 0.18);
+  --line-2: rgba(78, 35, 8, 0.34);
+  --text-1: #2b1609;
+  --text-2: #573015;
+  --text-3: #81542e;
+  --text-4: #a57445;
+  --accent-h: 85;
+  --accent: #ffb900;
+  --accent-soft: rgba(102, 45, 139, 0.18);
+  --accent-ghost: rgba(255, 185, 0, 0.18);
+  --accent-ink: #351600;
+  --accent-hi: #6a2a8d;
+  --accent-border: rgba(151, 83, 14, 0.52);
+  --ok: #43b44e;
+  --ok-soft: rgba(67, 180, 78, 0.16);
+  --ok-text: #248a35;
+  --warn: #d58516;
+  --warn-text: #9b590a;
+  --bad: #b84026;
+  --bad-soft: rgba(184, 64, 38, 0.15);
+  --bad-text: #9d321e;
+  --r-s: 9px;
+  --r-m: 13px;
+  --r-l: 17px;
+  --r-xl: 23px;
+  font-family: 'Trebuchet MS', 'Arial', sans-serif;
+  background: #301805;
+  isolation: isolate;
+}
+
+.theme-apiary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-image: url('./arabian-apiary-bg-v2.png');
+  background-size: cover;
+  background-position: center top;
+  filter: saturate(1.04) contrast(1.02);
+}
+
+.theme-apiary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background:
+    linear-gradient(180deg, rgba(29, 12, 2, .08) 0 21%, rgba(44, 20, 5, .54) 43%, rgba(38, 17, 4, .28) 79%, rgba(24, 10, 2, .45) 100%),
+    radial-gradient(circle at 50% 42%, transparent 0 38%, rgba(24, 10, 2, .16) 100%);
+}
+
+.theme-apiary .apiary-brandbar {
+  height: 128px;
+  flex: 0 0 128px;
+  display: flex;
+  align-items: flex-start;
+  padding: 11px 14px;
+  position: relative;
+  color: #ffd463;
+  text-shadow: 0 2px 3px rgba(43, 17, 2, .75);
+}
+
+.theme-apiary .apiary-brandbar::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 43px;
+  background: linear-gradient(180deg, rgba(29, 13, 3, .93), rgba(39, 18, 4, .72));
+  box-shadow: 0 2px 12px rgba(0, 0, 0, .35);
+  z-index: -1;
+}
+
+.apiary-brandmark {
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+  margin-right: 8px;
+  border-radius: 8px;
+  background: linear-gradient(145deg, #ffc42e, #c97b0e);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.42), 0 2px 6px rgba(0,0,0,.3);
+  font-size: 15px;
+}
+
+.apiary-brandbar strong {
+  font-family: 'Kurale', Georgia, serif;
+  font-size: 20px;
+  letter-spacing: .01em;
+  line-height: 27px;
+}
+
+.apiary-brandbee { margin: 4px 0 0 8px; font-size: 14px; }
+
+.apiary-sign {
+  position: absolute;
+  top: 49px;
+  right: 13px;
+  z-index: 2;
+  transform: rotate(-3deg);
+  padding: 5px 10px 4px;
+  border: 2px solid #875019;
+  border-radius: 4px 8px 5px 7px;
+  background: linear-gradient(160deg, #efc46f, #c98a3c);
+  color: #3b1c09;
+  font-family: 'Kurale', Georgia, serif;
+  font-size: 9px;
+  line-height: 1;
+  text-align: center;
+  text-shadow: none;
+  box-shadow: 0 4px 8px rgba(38, 14, 1, .35), inset 0 0 10px rgba(104, 53, 10, .18);
+}
+.apiary-sign b { font-size: 13px; letter-spacing: .05em; }
+
+.theme-apiary .hero-outer {
+  padding: 0 12px 4px;
+}
+
+.theme-apiary .hero-card,
+.theme-apiary .sub-group,
+.theme-apiary .presets-hero,
+.theme-apiary .preset-card,
+.theme-apiary .advanced-default-route,
+.theme-apiary .modal,
+.theme-apiary .dev-panel,
+.theme-apiary .pending-card {
+  background:
+    radial-gradient(circle at 15% 25%, rgba(120, 63, 13, .05) 0 1px, transparent 1.5px),
+    radial-gradient(circle at 80% 70%, rgba(120, 63, 13, .045) 0 1px, transparent 1.5px),
+    linear-gradient(145deg, rgba(255, 235, 177, .97), rgba(238, 190, 103, .97));
+  background-size: 17px 19px, 23px 29px, auto;
+  border: 1px solid rgba(104, 53, 10, .48);
+  box-shadow: 0 5px 12px rgba(40, 16, 2, .42), inset 0 0 18px rgba(115, 57, 8, .11);
+}
+
+.theme-apiary .hero-card {
+  min-height: 93px;
+  padding: 13px 14px 13px 91px;
+  overflow: visible;
+  border-radius: 13px 18px 15px 12px;
+}
+
+.theme-apiary .hero-card::after {
+  content: '🐝';
+  position: absolute;
+  right: 13px;
+  bottom: -12px;
+  font-size: 20px;
+  filter: drop-shadow(0 2px 2px rgba(48, 18, 0, .35));
+  transform: rotate(-11deg);
+}
+
+.theme-apiary .power-area {
+  position: absolute;
+  left: -7px;
+  top: -7px;
+  width: 94px;
+  height: 94px;
+}
+
+.theme-apiary .power-btn {
+  width: 79px;
+  height: 79px;
+  color: #ffc900;
+  border: 5px solid #e6a211;
+  background:
+    radial-gradient(circle at 50% 45%, #30250f 0 46%, transparent 47%),
+    repeating-radial-gradient(circle at 50% 50%, #c47a08 0 3px, #f1b918 4px 7px);
+  box-shadow:
+    0 0 0 3px #75430c,
+    0 0 0 6px #ffc22b,
+    0 7px 14px rgba(61, 24, 1, .55),
+    inset 0 0 16px #000;
+}
+
+.theme-apiary .power-btn::after {
+  content: '';
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: -12px;
+  height: 19px;
+  background: radial-gradient(ellipse at top, #f9b80e 0 42%, transparent 45%) 0 0 / 19px 20px repeat-x;
+  z-index: -1;
+}
+
+.theme-apiary .power-btn:hover { filter: brightness(1.08); transform: translateY(-1px); }
+.theme-apiary .power-btn.connected { background: radial-gradient(circle, #4a300d 0 45%, #1c1308 47%); }
+.theme-apiary .power-btn svg { width: 31px; height: 31px; stroke-width: 2.4; filter: drop-shadow(0 0 5px #ffbf00); }
+
+.theme-apiary .hero-info { gap: 5px; }
+.theme-apiary .hero-name { font-size: 16px; font-weight: 800; }
+.theme-apiary .hero-status { font-family: 'Trebuchet MS', sans-serif; font-size: 10px; font-weight: 800; }
+.theme-apiary .hero-status.off { color: #299437; }
+.theme-apiary .hero-status.on { color: #1f8a31; }
+.theme-apiary .hero-meta { gap: 8px; }
+.theme-apiary .chip {
+  border: 1px solid rgba(77, 25, 101, .34);
+  background: linear-gradient(180deg, #7843a1, #54276e);
+  color: #fff0ff;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.24);
+}
+.theme-apiary .hero-split { font-weight: 700; color: #278f38; }
+
+.theme-apiary .tab-bar { padding: 8px 12px 6px; }
+.theme-apiary .seg {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
+  min-width: 0;
+  gap: 7px;
+  padding: 0;
+  background: transparent;
+}
+.theme-apiary .seg button {
+  width: 100%;
+  flex: none;
+  min-width: 0;
+  min-height: 43px;
+  border: 1px solid rgba(91, 42, 7, .48);
+  border-radius: 10px 13px 9px 12px;
+  background: linear-gradient(155deg, rgba(242, 204, 128, .96), rgba(204, 139, 57, .96));
+  color: #402009;
+  font-family: 'Kurale', Georgia, serif;
+  padding-left: 5px;
+  padding-right: 5px;
+  font-size: 14px;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 4px 8px rgba(43, 16, 1, .35), inset 0 1px 0 rgba(255,255,255,.3);
+}
+.theme-apiary .seg button::before { content: '♜'; margin-right: 2px; font-size: 15px; }
+.theme-apiary .seg button:nth-child(2)::before { content: '▧'; }
+.theme-apiary .seg button:nth-child(3)::before { content: '♟'; }
+.theme-apiary .seg button.active {
+  background: linear-gradient(155deg, #ffe59a, #f5b31a);
+  color: #321602;
+  box-shadow: 0 4px 9px rgba(43,16,1,.4), inset 0 0 0 1px #ffd960;
+}
+.theme-apiary .tab-new-badge {
+  margin-left: 0;
+  padding-left: 3px;
+  padding-right: 3px;
+  background: #6b2c91;
+  color: white;
+  font-family: 'Trebuchet MS', sans-serif;
+}
+
+.theme-apiary .tg-card,
+.theme-apiary .empty-state > div:first-child {
+  background:
+    radial-gradient(circle at 20% 30%, rgba(120, 63, 13, .05) 0 1px, transparent 1.5px),
+    linear-gradient(145deg, rgba(255, 230, 169, .95), rgba(224, 169, 82, .95));
+  border: 1px solid rgba(91, 42, 7, .42);
+  box-shadow: 0 4px 9px rgba(43, 16, 1, .32), inset 0 0 12px rgba(115, 57, 8, .1);
+}
+.theme-apiary .empty-state > div:first-child {
+  flex: 0 0 auto !important;
+  width: 100%;
+  padding: 18px 12px;
+  border-radius: 13px 16px 12px 15px;
+}
+.theme-apiary .tg-card-title { color: #351805; font-weight: 700; }
+.theme-apiary .tg-card-sub { color: #80512c; }
+
+.theme-apiary .content-area,
+.theme-apiary .presets-screen {
+  margin: 0 9px 4px;
+  border-radius: 14px 17px 12px 16px;
+  background: rgba(54, 25, 6, .47);
+  border: 1px solid rgba(255, 199, 87, .12);
+  box-shadow: inset 0 12px 22px rgba(31, 12, 1, .17);
+}
+
+.theme-apiary .search-row { padding: 10px 10px 7px; }
+.theme-apiary .input,
+.theme-apiary .search-input,
+.theme-apiary .add-rule-search {
+  min-height: 39px;
+  background: linear-gradient(160deg, rgba(255, 229, 166, .96), rgba(231, 181, 102, .96));
+  border-color: rgba(92, 43, 10, .45);
+  border-radius: 11px 14px 10px 12px;
+  box-shadow: inset 0 1px 5px rgba(100, 48, 8, .14), 0 2px 5px rgba(44, 18, 2, .2);
+}
+.theme-apiary .input input::placeholder,
+.theme-apiary .search-input::placeholder,
+.theme-apiary .add-rule-search-input::placeholder { color: #9b6d3e; }
+.theme-apiary .btn-icon {
+  background: linear-gradient(160deg, #e9bd71, #c98d43);
+  border-color: rgba(91, 42, 7, .48);
+  color: #4a240b;
+  box-shadow: 0 2px 5px rgba(44, 18, 2, .3);
+}
+.theme-apiary .btn-add,
+.theme-apiary .btn-add-rule,
+.theme-apiary .modal-btn-primary,
+.theme-apiary .modal-btn-full,
+.theme-apiary .empty-add-btn,
+.theme-apiary .pending-btn {
+  color: #3c1d02;
+  background:
+    radial-gradient(circle at 25% 28%, rgba(255,255,255,.25) 0 2px, transparent 2.5px),
+    linear-gradient(145deg, #ffd424, #e89a00);
+  border: 1px solid #ffdf55;
+  box-shadow: 0 3px 0 #9e5c08, 0 5px 10px rgba(45, 16, 0, .38), inset 0 1px 0 rgba(255,255,255,.5);
+}
+
+.theme-apiary .sec-label,
+.theme-apiary .presets-section-label,
+.theme-apiary .route-mode-label { color: #ffd06a; text-shadow: 0 1px 2px #2b1000; font-weight: 800; }
+.theme-apiary .sec-label .count { background: rgba(255, 197, 71, .22); color: #ffe0a0; }
+
+.theme-apiary .sub-groups,
+.theme-apiary .presets-list { padding-left: 8px; padding-right: 8px; }
+.theme-apiary .sub-group { overflow: hidden; border-radius: 12px 16px 13px 15px; }
+.theme-apiary .sub-header { min-height: 54px; border-bottom-color: rgba(91,42,7,.17); }
+.theme-apiary .sub-header:hover { background: rgba(255, 215, 130, .32); }
+.theme-apiary .sub-header-name { font-family: 'Kurale', Georgia, serif; font-size: 17px; font-weight: 700; color: #2f1708; }
+.theme-apiary .sub-header-icon { background: rgba(190, 117, 20, .2); color: #633711; }
+.theme-apiary .sub-updated,
+.theme-apiary .sub-count,
+.theme-apiary .sub-traffic-labels { color: #7a4b26; }
+.theme-apiary .sub-btn { color: #70431e; }
+.theme-apiary .sub-btn:hover { background: rgba(106, 51, 11, .12); color: #351805; }
+.theme-apiary .sub-traffic { background: rgba(255, 227, 161, .38); border-bottom-color: rgba(91,42,7,.12); }
+.theme-apiary .sub-traffic-bar-wrap { background: rgba(91,42,7,.16); }
+.theme-apiary .sub-traffic-bar { background: linear-gradient(90deg, #e99908, #ffd641); }
+
+.theme-apiary .servers-list { padding: 0; gap: 0; }
+.theme-apiary .server-row {
+  border: 0;
+  border-bottom: 1px solid rgba(105, 55, 16, .17);
+  border-radius: 0;
+  padding: 10px 11px;
+}
+.theme-apiary .server-row:last-child { border-bottom: 0; }
+.theme-apiary .server-row:hover { background: rgba(255, 222, 147, .42); }
+.theme-apiary .server-row.selected {
+  background: linear-gradient(90deg, rgba(255, 191, 33, .24), rgba(255, 232, 174, .18));
+  box-shadow: inset 4px 0 #e7a40d;
+}
+.theme-apiary .server-name { font-weight: 800; color: #2b1609; }
+.theme-apiary .server-host { color: #865a32; }
+.theme-apiary .server-grip { color: #986737; }
+.theme-apiary .server-flag { width: 31px; height: 31px; border-radius: 8px; box-shadow: 0 1px 3px rgba(50,19,1,.27); }
+.theme-apiary .server-flag.fi { font-size: 31px; line-height: 31px; }
+.theme-apiary .active-dot { background: #2aaa3e; box-shadow: 0 0 0 2px rgba(42,170,62,.16); }
+.theme-apiary .ping-val { font-weight: 700; }
+.theme-apiary .sub-expand { color: #5b3215; border-top-color: rgba(91,42,7,.17); }
+.theme-apiary .sub-expand:hover { background: rgba(255, 222, 147, .42); }
+
+.theme-apiary .route-mode-card,
+.theme-apiary .rule-row {
+  background: linear-gradient(145deg, rgba(250, 220, 155, .94), rgba(225, 172, 91, .94));
+  border-color: rgba(91, 42, 7, .30);
+  box-shadow: 0 2px 5px rgba(43, 16, 1, .22);
+}
+.theme-apiary .route-mode-card:hover:not(.on),
+.theme-apiary .rule-row:hover { background: linear-gradient(145deg, #ffe7aa, #e7b36a); }
+.theme-apiary .route-mode-card.on { box-shadow: inset 0 0 0 2px #e7a20b, 0 2px 6px rgba(43,16,1,.25); }
+.theme-apiary .rule-name,
+.theme-apiary .route-mode-title { color: #321807; }
+.theme-apiary .rule-path,
+.theme-apiary .route-mode-hint { color: #81542e; }
+.theme-apiary .seg-mini { background: rgba(255, 222, 147, .22); }
+
+.theme-apiary .presets-hero { margin-top: 10px; }
+.theme-apiary .presets-hero-label { color: #6a2a8d; }
+.theme-apiary .preset-card { box-shadow: 0 2px 6px rgba(43,16,1,.26); }
+.theme-apiary .preset-card:hover { background: linear-gradient(145deg, #ffeab8, #e9b96f); }
+.theme-apiary .preset-card.active { border-color: #d39108; box-shadow: inset 4px 0 #e7a40d, 0 2px 6px rgba(43,16,1,.26); }
+
+.theme-apiary .app-footer {
+  height: 34px;
+  padding: 0 13px;
+  border-top: 1px solid rgba(255, 198, 85, .22);
+  background: linear-gradient(180deg, rgba(38, 17, 4, .93), rgba(26, 10, 2, .98));
+  box-shadow: 0 -4px 12px rgba(21, 8, 1, .35);
+}
+.theme-apiary .app-footer-brand,
+.theme-apiary .app-footer-version { color: #efbd55; }
+.theme-apiary .app-footer-brand::before { content: '🍯 '; }
+.theme-apiary .app-footer-brand:hover,
+.theme-apiary .app-footer-version:hover { color: #ffe28d !important; }
+
+.theme-apiary .modal-overlay { background: rgba(30, 12, 2, .72); }
+.theme-apiary .modal { color: #4e2a10; }
+.theme-apiary .modal-input,
+.theme-apiary .field input,
+.theme-apiary .field textarea,
+.theme-apiary .field select { background: rgba(255, 229, 170, .66); border-color: rgba(91,42,7,.33); }
+.theme-apiary .modal-btn-cancel { color: #70431e; }
+.theme-apiary .ctx-menu { background: #efc879; border-color: rgba(91,42,7,.42); }
+.theme-apiary .ctx-item:hover { background: rgba(255, 225, 154, .58); }
+
+.theme-apiary .dev-panel { color: #4e2a10; }
+.theme-apiary .dev-item:hover { background: rgba(255, 225, 154, .58); }
+.theme-apiary .dev-theme-item { font-weight: 700; }
+.dev-theme-icon { width: 16px; display: inline-grid; place-items: center; font-size: 14px; }
+.theme-apiary .dev-toggle { background: rgba(91,42,7,.22); }
+.theme-apiary .dev-toggle.active { background: #e8a20a; }
+
+.theme-apiary .toast {
+  background: linear-gradient(145deg, #f8d88e, #dca151);
+  border-color: rgba(91,42,7,.45);
+  color: #351805;
+}
+
+.theme-apiary * {
+  scrollbar-color: rgba(112, 58, 16, .48) transparent;
+}
+.theme-apiary *::-webkit-scrollbar-thumb { background: rgba(112, 58, 16, .44); background-clip: content-box; }
+
+@media (max-height: 700px) {
+  .theme-apiary .apiary-brandbar { height: 104px; flex-basis: 104px; }
+  .theme-apiary .apiary-sign { top: 43px; }
+  .theme-apiary .hero-card { min-height: 86px; }
+  .theme-apiary .power-area { transform: scale(.9); transform-origin: left center; }
+  .theme-apiary .tab-bar { padding-top: 6px; }
+  .theme-apiary .seg button { min-height: 39px; padding-top: 6px; padding-bottom: 6px; }
+}
+
+/* ─── Arabian Apiary v2: reference-faithful portrait composition ─────────── */
+.theme-apiary {
+  --apiary-parchment: #f4d28f;
+  --apiary-parchment-light: #ffe3a6;
+  --apiary-ink: #311604;
+  --apiary-brown: #52270b;
+}
+
+.theme-apiary::before {
+  background-size: cover;
+  background-position: center top;
+}
+
+.theme-apiary::after {
+  background:
+    linear-gradient(180deg, rgba(27, 10, 1, .02) 0 25%, rgba(43, 18, 3, .28) 38%, rgba(36, 14, 2, .18) 77%, rgba(22, 8, 1, .1) 100%),
+    radial-gradient(circle at 50% 46%, transparent 0 43%, rgba(29, 10, 1, .12) 100%);
+}
+
+.theme-apiary .apiary-brandbar {
+  height: 225px;
+  flex: 0 0 225px;
+  padding: 11px 15px;
+  align-items: flex-start;
+  user-select: none;
+}
+
+.theme-apiary .apiary-brandbar::before {
+  height: 44px;
+  background: linear-gradient(180deg, rgba(27, 12, 3, .97), rgba(37, 17, 4, .92));
+  border-bottom: 1px solid rgba(255, 193, 62, .14);
+}
+
+.theme-apiary .apiary-brandmark {
+  width: 28px;
+  height: 28px;
+  border-radius: 9px 9px 10px 8px;
+  font-size: 15px;
+}
+.theme-apiary .apiary-brandmark svg { width: 25px; height: 25px; pointer-events: none; }
+
+.theme-apiary .apiary-brandbar strong {
+  font-size: 22px;
+  line-height: 28px;
+}
+
+.theme-apiary .apiary-brandbee { margin-top: 4px; font-size: 18px; color: #f2a914; }
+
+.theme-apiary .apiary-sign {
+  top: 55px;
+  right: 18px;
+  padding: 7px 13px 6px;
+  transform: rotate(-4deg);
+  border-width: 2px;
+  font-size: 10px;
+  box-shadow: 0 5px 9px rgba(38,14,1,.42), inset 0 0 12px rgba(104,53,10,.2);
+}
+.theme-apiary .apiary-sign b { font-size: 16px; }
+
+.apiary-window-controls { display: none; }
+.theme-apiary .apiary-window-controls {
+  position: absolute;
+  z-index: 4;
+  top: 0;
+  right: 5px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+}
+.theme-apiary .apiary-window-controls button {
+  width: 40px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  color: #f6bd45;
+  font-size: 25px;
+  line-height: 1;
+  border-radius: 5px;
+  transition: color .12s, background .12s;
+}
+.theme-apiary .apiary-window-controls button:nth-child(2) { font-size: 23px; }
+.theme-apiary .apiary-window-controls button:hover { color: #ffe29a; background: rgba(255,190,55,.1); }
+.theme-apiary .apiary-window-controls button:last-child:hover { background: rgba(179,53,25,.65); color: white; }
+
+.theme-apiary .hero-outer {
+  z-index: 3;
+  margin-top: -64px;
+  padding: 0 17px 7px;
+}
+
+.theme-apiary .hero-card {
+  min-height: 108px;
+  padding: 15px 22px 14px 116px;
+  border-radius: 13px 17px 14px 11px;
+  border: 2px solid rgba(105, 53, 11, .54);
+  box-shadow: 0 7px 18px rgba(38, 14, 1, .48), inset 0 0 28px rgba(115,57,8,.12);
+}
+
+.theme-apiary .hero-card::before {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  z-index: -1;
+  border: 1px dashed rgba(121, 65, 17, .18);
+  border-radius: 10px 14px 11px 9px;
+  pointer-events: none;
+}
+
+.theme-apiary .hero-card::after { right: 20px; bottom: -14px; font-size: 23px; }
+
+.theme-apiary .power-area {
+  left: -9px;
+  top: -9px;
+  width: 112px;
+  height: 112px;
+}
+
+.theme-apiary .power-btn {
+  width: 95px;
+  height: 95px;
+  border-width: 6px;
+  box-shadow:
+    0 0 0 4px #75430c,
+    0 0 0 8px #ffc22b,
+    0 9px 18px rgba(61,24,1,.58),
+    inset 0 0 20px #000;
+}
+.theme-apiary .power-btn svg { width: 38px; height: 38px; }
+.theme-apiary .power-btn::after { bottom: -17px; height: 25px; background-size: 24px 26px; }
+
+.theme-apiary .hero-info { gap: 7px; }
+.theme-apiary .hero-name { font-family: 'Kurale', Georgia, serif; font-size: 20px; line-height: 1.1; }
+.theme-apiary .hero-flag-wrap,
+.theme-apiary .hero-flag-wrap .server-flag { width: 22px; height: 22px; }
+.theme-apiary .hero-flag-wrap .server-flag { font-size: 22px; line-height: 22px; }
+.theme-apiary .hero-status { font-size: 12px; letter-spacing: .08em; }
+.theme-apiary .hero-meta { font-size: 13px; }
+.theme-apiary .hero-meta .chip { font-size: 12px; padding: 3px 9px; }
+.theme-apiary .hero-split { font-size: 13px; }
+
+.theme-apiary .tab-bar { z-index: 2; padding: 8px 17px 9px; }
+.theme-apiary .seg { gap: 9px; }
+.theme-apiary .seg button {
+  min-height: 50px;
+  font-size: 18px;
+  border-width: 2px;
+  box-shadow: 0 5px 10px rgba(43,16,1,.42), inset 0 1px 0 rgba(255,255,255,.36);
+}
+.theme-apiary .seg button::before { content: none; }
+.theme-apiary .seg button:nth-child(1)::before,
+.theme-apiary .seg button:nth-child(2)::before,
+.theme-apiary .seg button:nth-child(3)::before { content: none; }
+.theme-apiary .apiary-tab-icon {
+  width: 25px;
+  height: 25px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: 0 0 25px;
+  color: #4b2408;
+}
+.theme-apiary .apiary-tab-icon svg { width: 25px; height: 25px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.theme-apiary .tab-new-badge { padding: 2px 5px; font-size: 9px; }
+
+.theme-apiary .content-area,
+.theme-apiary .presets-screen {
+  margin: 0 12px 7px;
+  border: 0;
+  border-radius: 0;
+  background: rgba(47, 20, 4, .43);
+  box-shadow: inset 0 12px 24px rgba(28, 10, 1, .18);
+}
+
+.theme-apiary .search-row { padding: 12px 10px 9px; gap: 9px; }
+.theme-apiary .input,
+.theme-apiary .search-input,
+.theme-apiary .add-rule-search {
+  min-height: 50px;
+  padding-left: 15px;
+  border-width: 2px;
+  font-size: 15px;
+}
+.theme-apiary .input input { font-size: 15px; }
+.theme-apiary .btn-icon,
+.theme-apiary .btn-add { width: 49px; height: 49px; border-radius: 11px; }
+.theme-apiary .btn-add svg { width: 22px; height: 22px; }
+
+.theme-apiary .sec-label,
+.theme-apiary .presets-section-label {
+  min-height: 40px;
+  padding: 10px 13px 7px;
+  font-family: 'Kurale', Georgia, serif;
+  font-size: 15px;
+  letter-spacing: .08em;
+}
+.theme-apiary .sec-label::after { content: none; }
+.theme-apiary .sec-label .count { height: 23px; min-width: 25px; font-size: 12px; }
+
+.theme-apiary .sub-groups { gap: 12px; padding: 0 9px 10px; }
+.theme-apiary .sub-group {
+  border-width: 2px;
+  border-radius: 14px 18px 15px 12px;
+  box-shadow: 0 7px 15px rgba(39,14,1,.44), inset 0 0 22px rgba(115,57,8,.1);
+}
+.theme-apiary .sub-header {
+  min-height: 64px;
+  padding: 7px 12px;
+  gap: 9px;
+}
+.theme-apiary .sub-header::before {
+  content: '';
+  width: 47px;
+  height: 47px;
+  flex: 0 0 47px;
+  border-radius: 50%;
+  border: 2px solid rgba(90,42,8,.52);
+  background-image: url('./arabian-apiary-bg-v2.png');
+  background-size: 250px auto;
+  background-position: 23% 4%;
+  box-shadow: 0 2px 6px rgba(46,17,1,.35);
+}
+.theme-apiary .sub-group:nth-child(even) .sub-header::before { background-position: 88% 6%; }
+.theme-apiary .sub-chevron { order: -1; width: 18px; height: 18px; }
+.theme-apiary .sub-header-name { font-size: 19px; line-height: 1.05; }
+.theme-apiary .sub-updated { margin-top: 5px; font-size: 12px; }
+.theme-apiary .sub-count { font-size: 12px; }
+.theme-apiary .sub-btn { width: 27px; height: 27px; }
+.theme-apiary .sub-traffic { padding: 6px 18px; }
+
+.theme-apiary .server-row { min-height: 60px; padding: 8px 15px; gap: 11px; }
+.theme-apiary .server-flag { width: 39px; height: 39px; border-radius: 9px; position: relative; overflow: visible; }
+.theme-apiary .server-flag.fi { font-size: 39px; line-height: 39px; }
+.theme-apiary .server-flag::after {
+  content: '';
+  position: absolute;
+  right: -7px;
+  bottom: -5px;
+  width: 13px;
+  height: 15px;
+  border: 1px solid #79420b;
+  border-radius: 3px 3px 5px 5px;
+  background: linear-gradient(180deg, #ffd83f 0 18%, #e28a0b 20% 100%);
+  box-shadow: inset 0 0 3px rgba(255,255,255,.45), 0 1px 2px rgba(42,15,0,.35);
+}
+.theme-apiary .server-flag::before {
+  content: '';
+  position: absolute;
+  z-index: 2;
+  right: -6px;
+  bottom: 10px;
+  width: 11px;
+  height: 3px;
+  border-radius: 2px 2px 0 0;
+  background: #6e3708;
+}
+.theme-apiary .server-name { font-size: 15px; }
+.theme-apiary .server-host { margin-top: 2px; font-size: 12px; }
+.theme-apiary .server-right { gap: 9px; }
+.theme-apiary .server-right .chip { font-size: 11px; padding: 4px 8px; }
+.theme-apiary .ping-val { font-size: 12px; }
+.theme-apiary .sub-expand { min-height: 42px; font-family: 'Kurale', Georgia, serif; font-size: 15px; font-weight: 700; }
+
+.theme-apiary .route-mode-wrap { padding-top: 14px; }
+.theme-apiary .route-mode-card { min-height: 70px; padding-top: 14px; }
+.theme-apiary .route-mode-title { font-family: 'Kurale', Georgia, serif; font-size: 15px; }
+.theme-apiary .rules-list { gap: 7px; padding-left: 10px; padding-right: 10px; }
+.theme-apiary .rule-row { min-height: 58px; border-radius: 11px 14px 10px 13px; padding: 10px 12px; }
+.theme-apiary .rule-name { font-size: 14px; }
+
+.theme-apiary .preset-card { min-height: 67px; padding: 12px 14px; }
+.theme-apiary .preset-name { font-family: 'Kurale', Georgia, serif; font-size: 17px; }
+
+.theme-apiary .app-footer {
+  height: 40px;
+  padding: 0 17px;
+}
+.theme-apiary .app-footer-brand,
+.theme-apiary .app-footer-version { font-size: 12px; }
+
+.theme-apiary .hero-card::after { content: none; }
+
+@media (max-height: 860px) {
+  .theme-apiary .apiary-brandbar { height: 190px; flex-basis: 190px; }
+  .theme-apiary .hero-outer { margin-top: -55px; padding-left: 14px; padding-right: 14px; }
+  .theme-apiary .hero-card { min-height: 100px; padding: 13px 16px 12px 105px; }
+  .theme-apiary .power-area { width: 103px; height: 103px; }
+  .theme-apiary .power-btn { width: 85px; height: 85px; border-width: 5px; }
+  .theme-apiary .power-btn svg { width: 34px; height: 34px; }
+  .theme-apiary .hero-name { font-size: 18px; }
+  .theme-apiary .seg button { min-height: 46px; font-size: 16px; }
+  .theme-apiary .apiary-tab-icon,
+  .theme-apiary .apiary-tab-icon svg { width: 21px; height: 21px; flex-basis: 21px; }
+  .theme-apiary .server-row { min-height: 57px; }
+}
+
+@media (max-height: 760px) {
+  .theme-apiary .apiary-brandbar { height: 164px; flex-basis: 164px; }
+  .theme-apiary .hero-outer { margin-top: -48px; padding-left: 13px; padding-right: 13px; }
+  .theme-apiary .hero-card { min-height: 94px; padding: 13px 14px 12px 98px; }
+  .theme-apiary .power-area { width: 96px; height: 96px; left: -7px; top: -5px; transform: none; }
+  .theme-apiary .power-btn { width: 78px; height: 78px; border-width: 5px; }
+  .theme-apiary .power-btn svg { width: 31px; height: 31px; }
+  .theme-apiary .hero-name { font-size: 17px; }
+  .theme-apiary .hero-status { font-size: 10px; }
+  .theme-apiary .seg button { min-height: 42px; font-size: 14px; }
+  .theme-apiary .seg button::before { font-size: 16px; margin-right: 2px; }
+}
+
+/* ─── Arabian Apiary v3: compact skin for the native 400 × 660 window ──────
+   The OS title bar and the application's configured window dimensions stay
+   untouched.  Only the live content below it receives the themed treatment. */
+.theme-apiary .apiary-brandbar {
+  display: block;
+  height: 150px;
+  flex: 0 0 150px;
+  padding: 0;
+  background-image: url('./apiary-hero-v3.png');
+  background-size: auto 150px;
+  background-position: center top;
+  background-repeat: no-repeat;
+  filter: saturate(1.04) contrast(1.02);
+  box-shadow: inset 0 -18px 20px -17px rgba(35, 12, 0, .75);
+  pointer-events: none;
+}
+
+.theme-apiary .apiary-brandbar::before,
+.theme-apiary .apiary-brandmark,
+.theme-apiary .apiary-brandbar > strong,
+.theme-apiary .apiary-brandbee,
+.theme-apiary .apiary-window-controls,
+.theme-apiary .apiary-sign {
+  display: none;
+}
+
+.theme-apiary .hero-outer {
+  z-index: 3;
+  margin-top: -64px;
+  padding: 0 12px 5px;
+}
+
+.theme-apiary .hero-card {
+  min-height: 91px;
+  padding: 12px 13px 11px 94px;
+  border-width: 1.5px;
+  border-radius: 8px 13px 10px 8px;
+  clip-path: polygon(1% 4%, 4% 1%, 19% 2%, 36% 0, 51% 2%, 68% 1%, 83% 3%, 98% 1%, 100% 10%, 99% 28%, 100% 48%, 98% 67%, 100% 89%, 96% 99%, 78% 97%, 62% 100%, 46% 98%, 28% 100%, 13% 98%, 2% 100%, 0 89%, 1% 69%, 0 48%, 1% 27%);
+  box-shadow: 0 6px 13px rgba(38, 14, 1, .5), inset 0 0 22px rgba(115, 57, 8, .12);
+}
+
+.theme-apiary .hero-card::before {
+  inset: 4px;
+  border-radius: 8px 12px 9px 7px;
+}
+
+.theme-apiary .power-area {
+  left: -7px;
+  top: -7px;
+  width: 94px;
+  height: 94px;
+}
+.theme-apiary .power-area::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background:
+    repeating-conic-gradient(from 7deg, #f9c225 0 7deg, #8e4b08 7deg 12deg, #ffdc45 12deg 18deg);
+  clip-path: polygon(50% 0, 58% 8%, 69% 3%, 74% 14%, 88% 12%, 88% 26%, 100% 33%, 92% 44%, 100% 54%, 90% 63%, 95% 77%, 81% 80%, 76% 94%, 63% 89%, 51% 100%, 42% 91%, 29% 97%, 24% 83%, 10% 82%, 13% 68%, 0 60%, 8% 49%, 0 39%, 12% 31%, 8% 17%, 23% 16%, 30% 3%, 42% 9%);
+  filter: drop-shadow(0 3px 3px rgba(55, 20, 0, .55));
+}
+
+.theme-apiary .power-btn {
+  z-index: 2;
+  width: 79px;
+  height: 79px;
+  border-width: 5px;
+  box-shadow: 0 0 0 3px #75430c, 0 0 0 6px #ffc22b,
+    0 7px 14px rgba(61,24,1,.58), inset 0 0 16px #000;
+}
+.theme-apiary .power-btn svg { width: 31px; height: 31px; }
+.theme-apiary .power-btn::after { bottom: -12px; height: 19px; background-size: 19px 20px; }
+
+.theme-apiary .hero-info { gap: 4px; }
+.theme-apiary .hero-name { font-size: 16px; line-height: 1.12; }
+.theme-apiary .hero-flag-wrap,
+.theme-apiary .hero-flag-wrap .server-flag { width: 17px; height: 17px; }
+.theme-apiary .hero-flag-wrap .server-flag { font-size: 17px; line-height: 17px; }
+.theme-apiary .hero-status { font-size: 10px; }
+.theme-apiary .hero-meta,
+.theme-apiary .hero-split { font-size: 11px; }
+.theme-apiary .hero-meta .chip { padding: 2px 7px; font-size: 10px; }
+
+.theme-apiary .tab-bar { z-index: 2; padding: 7px 12px 7px; }
+.theme-apiary .seg { gap: 7px; }
+.theme-apiary .seg button {
+  min-height: 43px;
+  padding: 5px 4px;
+  font-size: 14px;
+  border-width: 1.5px;
+}
+.theme-apiary .apiary-tab-icon,
+.theme-apiary .apiary-tab-icon svg { width: 20px; height: 20px; flex-basis: 20px; }
+.theme-apiary .tab-new-badge { padding: 1px 3px; font-size: 8px; }
+
+.theme-apiary .content-area,
+.theme-apiary .presets-screen {
+  margin: 0 8px 3px;
+  border: 0;
+  border-radius: 0;
+  background: rgba(47, 20, 4, .38);
+}
+
+.theme-apiary .search-row { padding: 8px 7px 6px; gap: 7px; }
+.theme-apiary .input,
+.theme-apiary .search-input,
+.theme-apiary .add-rule-search {
+  min-height: 39px;
+  padding-left: 11px;
+  font-size: 12px;
+  border-width: 1.5px;
+}
+.theme-apiary .input input { font-size: 12px; }
+.theme-apiary .btn-icon,
+.theme-apiary .btn-add { width: 39px; height: 39px; border-radius: 9px; }
+
+.theme-apiary .sec-label,
+.theme-apiary .presets-section-label {
+  min-height: 27px;
+  padding: 6px 9px 4px;
+  font-size: 12px;
+  letter-spacing: .07em;
+}
+.theme-apiary .sec-label .count { height: 18px; min-width: 22px; font-size: 10px; }
+
+.theme-apiary .sub-groups {
+  position: relative;
+  gap: 9px;
+  padding: 0 6px 8px;
+}
+.theme-apiary .sub-group {
+  border-width: 1.5px;
+  border-radius: 11px 14px 12px 10px;
+}
+.theme-apiary .sub-group:first-child { overflow: visible; }
+.theme-apiary .sub-group:first-child::after {
+  content: 'Работает\A как пчёлка\A иншаАллах';
+  white-space: pre;
+  position: absolute;
+  z-index: 4;
+  top: -35px;
+  right: -10px;
+  width: 88px;
+  height: 88px;
+  padding: 24px 11px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-7deg);
+  border: 0;
+  background: url('./apiary-note-v3.png') center / contain no-repeat;
+  color: #351704;
+  font-family: 'Kurale', Georgia, serif;
+  font-size: 7.7px;
+  font-weight: 700;
+  line-height: 1.08;
+  text-align: center;
+  text-shadow: 0 1px rgba(255, 226, 151, .45);
+  filter: drop-shadow(0 4px 4px rgba(37,13,1,.42));
+  pointer-events: none;
+}
+
+.theme-apiary .sub-header {
+  min-height: 57px;
+  padding: 6px 8px;
+  gap: 6px;
+}
+.theme-apiary .sub-header::before {
+  width: 41px;
+  height: 41px;
+  flex-basis: 41px;
+  border-width: 1.5px;
+  background-color: #efbd69;
+  background-image: url('./apiary-avatar-admin-v3.png');
+  background-size: cover;
+  background-position: center 12%;
+  background-repeat: no-repeat;
+}
+.theme-apiary .sub-group:nth-child(even) .sub-header::before {
+  background-image: url('./apiary-avatar-camel-v3.png');
+  background-position: center 10%;
+}
+.theme-apiary .sub-chevron { order: -1; width: 14px; height: 14px; }
+.theme-apiary .sub-header-name { font-size: 15px; line-height: 1.05; }
+.theme-apiary .sub-updated { margin-top: 4px; font-size: 10px; }
+.theme-apiary .sub-count { font-size: 10px; }
+.theme-apiary .sub-header-right { gap: 1px; }
+.theme-apiary .sub-btn { width: 23px; height: 23px; }
+.theme-apiary .sub-btn svg { width: 11px; height: 11px; }
+
+.theme-apiary .sub-traffic {
+  min-height: 28px;
+  padding: 6px 13px;
+  background: rgba(255, 227, 161, .42);
+}
+.theme-apiary .sub-traffic-bar-wrap,
+.theme-apiary .sub-traffic-used { display: none; }
+.theme-apiary .sub-traffic-labels { font-size: 11px; }
+.theme-apiary .sub-traffic-expire { color: #b26027; letter-spacing: .02em; }
+
+.theme-apiary .server-row { min-height: 49px; padding: 6px 10px; gap: 8px; }
+.theme-apiary .server-flag { width: 31px; height: 31px; border-radius: 7px; }
+.theme-apiary .server-flag.fi { font-size: 31px; line-height: 31px; }
+.theme-apiary .server-name { font-size: 12px; }
+.theme-apiary .server-host { margin-top: 1px; font-size: 10px; }
+.theme-apiary .server-right { gap: 6px; }
+.theme-apiary .server-right .chip { padding: 3px 6px; font-size: 9px; }
+.theme-apiary .ping-val { font-size: 10px; }
+.theme-apiary .sub-expand { min-height: 31px; font-size: 11px; }
+
+.theme-apiary .app-footer { height: 30px; padding: 0 11px; }
+.theme-apiary .app-footer-brand,
+.theme-apiary .app-footer-version { font-size: 10px; }
+
+/* Keep the full illustrated composition stable instead of scaling the app. */
+@media (max-height: 700px) {
+  .theme-apiary .apiary-brandbar { height: 150px; flex-basis: 150px; }
+  .theme-apiary .hero-outer { margin-top: -64px; }
+  .theme-apiary .hero-card { min-height: 91px; }
+  .theme-apiary .power-area { transform: none; }
+}
